@@ -1,16 +1,20 @@
-import 'package:black_box/const/colors.dart';
 import 'package:flutter/material.dart';
 
 AppBar defaultAppBar({          //Constructor Calls These Parameters whenever The code is being compiled every time.
   required String appBarTitle, //AppBar Title.
   IconButton? iconButton,     //IF u WANT icons in the AppBar!.
+  Color? appbarColor,
+  IconButton? backwordArrow
   
 })
 
 {
   return AppBar(
-    backgroundColor: Specs().cCyanRGB,
-    title: Text(appBarTitle),               //AppBar Title in a String Varaible Will be used in a TEXT Widget... Just pass it Tgat String.
+    backgroundColor: appbarColor,
+    //elevation: 3,
+    
+    title: Text(appBarTitle),              //AppBar Title in a String Varaible Will be used in a TEXT Widget... Just pass it Tgat String.
+    leading: backwordArrow,
     actions: <Widget>[                     //ICON will be in Actions Not Leadings.
       if (iconButton != null) iconButton, //A Failur Safe Gurad to Prevent NULL error and also Check if there is an ICON or NOT.
     ],

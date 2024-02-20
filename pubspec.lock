@@ -115,6 +115,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   js:
     dependency: transitive
     description:
@@ -280,6 +285,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.0"
+  window_manager:
+    dependency: "direct main"
+    description:
+      name: window_manager
+      sha256: "17fadcfa7a6f891afdbd3380e60bc9b076d7c1c9166d1e45f4c7fd4de9469fb5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
 sdks:
   dart: ">=3.2.3 <4.0.0"
   flutter: ">=3.13.0"

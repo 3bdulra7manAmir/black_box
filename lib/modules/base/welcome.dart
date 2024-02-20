@@ -10,21 +10,30 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SplashScreenView(
-        navigateWhere: isLoaded,
-        navigateRoute: const Login(),
-        backgroundColor: Colors.black,
-        duration: const Duration(seconds: 16),
 
-      text: WavyAnimatedText("Welcome To The Black Box Project...",
+      body: Container(decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/background.jpg"),
+          fit: BoxFit.cover
+          ),
+        ),
+        width: double.infinity,
+        height: double.infinity,
+      child: SplashScreenView(
+      navigateWhere: isLoaded,
+      navigateRoute: const LoginScreen(),
+      //backgroundColor: Colors.white,
+      duration: const Duration(seconds: 7),
+      imageSrc: "assets/images/black_box_2.png",
+
+      text: WavyAnimatedText("Welcome To The Black Box...",
         textStyle: const TextStyle(
-        color: Colors.red,
+        color: Colors.black,
         fontSize: 32.0,
         fontWeight: FontWeight.bold,
-      ),
-    ),
-
-        imageSrc: "assets/logo_light.png",
+                ),
+          ),
+        ),
       ),
 
     );
