@@ -5,8 +5,16 @@ import 'package:flutter/material.dart';
 double width = 500;
 double height = 50;
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+
+bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +54,22 @@ class SignupScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
+                    child: Image.asset("assets/images/sc_assault.jpg",
+                      width: 250,
+                      height: 250,
+                      fit: BoxFit.cover,),
+                  ),
+
+                  const SizedBox(height: 25,),
+
+                  Container(
                     width: width,
                     height: height,
                     child: const TextField(
                       decoration: InputDecoration(
                         labelText: 'Full Name',
                         border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.account_circle)
                       ),
                     ),
                   ),
@@ -65,6 +83,7 @@ class SignupScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: 'Email',
                         border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.email)
                       ),
                     ),
                   ),
@@ -74,10 +93,24 @@ class SignupScreen extends StatelessWidget {
                   Container(
                     width: width,
                     height: height,
-                    child: const TextField(
+                    child:  TextField(
+                      obscureText: _obscureText,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
+                        prefixIcon: const Icon(Icons.password),
+                        suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscureText
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureText = !_obscureText;
+                                  });
+                                },
+                              )
                       ),
                     ),
                   ),
@@ -88,7 +121,7 @@ class SignupScreen extends StatelessWidget {
                     onPressed: () {
                       // Handle signup logic here
                     },
-                    child: const Text('SignUp'),
+                    child: const Text('SignUp', style: TextStyle(color: Colors.black)),
                   ),
 
                   const SizedBox(height:  20),
@@ -100,7 +133,7 @@ class SignupScreen extends StatelessWidget {
                               MaterialPageRoute(builder: (context) => const LoginScreen()),
                             );
                     },
-                    child: const Text('Already have an account? Login'),
+                    child: const Text('Already have an account? Login', style: TextStyle(color: Colors.black),),
                   ),
                 ],
               ),

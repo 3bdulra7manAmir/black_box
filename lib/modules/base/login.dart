@@ -91,15 +91,16 @@ bool _obscureText = true;
                               suffixIcon: IconButton(
                                 icon: Icon(
                                   _obscureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
                                 ),
                                 onPressed: () {
                                   setState(() {
                                     _obscureText = !_obscureText;
                                   });
                                 },
-                              )),
+                              )
+                              ),
                         ),
 
                         const SizedBox(height:  20),
@@ -111,7 +112,7 @@ bool _obscureText = true;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Home()),
+                                    builder: (context) => const Home()),
                               );
                             },
                             child: const Text('Login', style: TextStyle(color: Colors.black)),

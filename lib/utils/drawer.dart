@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:black_box/const/colors.dart';
+import 'package:black_box/modules/base/home.dart';
 import 'package:black_box/modules/base/login.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,11 @@ Widget defaultDrawer(BuildContext context) {
           ListTile(
               title: const Text("Home"),
               leading: const Icon(Icons.home),
-              onTap: () {}),
+              onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
+              }),
           ListTile(
               title: const Text("Dark mode"),
               leading: const Icon(Icons.dark_mode),

@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
 
         drawer: defaultDrawer(context, ),
-        appBar: defaultAppBar(appBarTitle: "Hi,... \t\t\t$username"),
+        appBar: defaultAppBar(appBarTitle: "Hi,... \t\t\t$username",),
 
         body: Padding(
           padding: const EdgeInsets.all(10),

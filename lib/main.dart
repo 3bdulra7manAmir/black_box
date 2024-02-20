@@ -1,5 +1,6 @@
 import 'package:black_box/logic/bloc/bloc_observer.dart';
-import 'package:black_box/modules/base/login.dart';
+import 'package:black_box/modules/base/dashboard.dart';
+import 'package:black_box/modules/base/register.dart';
 import 'package:bloc/bloc.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -30,8 +31,8 @@ class MainApp extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return  const MaterialApp(
-      home: LoginScreen(),
-      color: Colors.red,
+      home: SignupScreen(),
+      //color: Colors.red,
       debugShowCheckedModeBanner: false,
     );
   }
