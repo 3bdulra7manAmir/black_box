@@ -5,9 +5,15 @@ import 'package:flutter/material.dart';
 
 String username = "MAJ. Shadow";
 
-class Home extends StatelessWidget
+class Home extends StatefulWidget
 {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context)
@@ -15,7 +21,7 @@ class Home extends StatelessWidget
     return SafeArea(
       child: Scaffold(
 
-        drawer: defaultDrawer(),
+        drawer: defaultDrawer(context, ),
         appBar: defaultAppBar(appBarTitle: "Hi,... \t\t\t$username"),
 
         body: Padding(

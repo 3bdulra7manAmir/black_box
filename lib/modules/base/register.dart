@@ -2,6 +2,9 @@ import 'package:black_box/modules/base/login.dart';
 import 'package:black_box/utils/appbar.dart';
 import 'package:flutter/material.dart';
 
+double width = 500;
+double height = 50;
+
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
@@ -9,12 +12,17 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: defaultAppBar(appBarTitle: "Signup",
-      backwordArrow: IconButton(onPressed: (){Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const LoginScreen()),
-  );}, icon: const Icon(Icons.arrow_back),)
-    ),
+      appBar: defaultAppBar(
+          appBarTitle: "SignUp",
+          backwordArrow: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
+            icon: const Icon(Icons.arrow_back),
+          )),
 
       body: Center(
         child: Padding(
@@ -37,37 +45,60 @@ class SignupScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Full Name',
-                      border: OutlineInputBorder(),
+                  Container(
+                    width: width,
+                    height: height,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Full Name',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
+
                   const SizedBox(height:  10),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
+
+                  Container(
+                    width: width,
+                    height: height,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
+
                   const SizedBox(height:  10),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(),
+
+                  Container(
+                    width: width,
+                    height: height,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
+
                   const SizedBox(height:  20),
+
                   ElevatedButton(
                     onPressed: () {
                       // Handle signup logic here
                     },
-                    child: const Text('Signup'),
+                    child: const Text('SignUp'),
                   ),
+
                   const SizedBox(height:  20),
+
                   TextButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const LoginScreen()),
+                            );
                     },
                     child: const Text('Already have an account? Login'),
                   ),
