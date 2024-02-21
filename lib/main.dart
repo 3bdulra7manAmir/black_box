@@ -1,10 +1,8 @@
-import 'package:black_box/logic/bloc/bloc_observer.dart';
-import 'package:black_box/modules/base/dashboard.dart';
-import 'package:black_box/modules/base/register.dart';
+import 'package:black_box/bloc/bloc_observer.dart';
+import 'package:black_box/modules/home/home.dart';
+import 'package:black_box/modules/splash/welcome.dart';
 import 'package:bloc/bloc.dart';
 import 'package:window_manager/window_manager.dart';
-
-
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -31,7 +29,7 @@ class MainApp extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return  const MaterialApp(
-      home: SignupScreen(),
+      home: Welcome(),
       //color: Colors.red,
       debugShowCheckedModeBanner: false,
     );

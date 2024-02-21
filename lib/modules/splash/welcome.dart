@@ -1,4 +1,4 @@
-import 'package:black_box/modules/base/login.dart';
+import 'package:black_box/modules/login/login.dart';
 import 'package:tbib_splash_screen/splash_screen_view.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,8 @@ class Welcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Container(decoration: const BoxDecoration(
+      body: Container(
+        decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/background.jpg"),
           fit: BoxFit.cover
@@ -19,14 +20,16 @@ class Welcome extends StatelessWidget {
         ),
         width: double.infinity,
         height: double.infinity,
+      
       child: SplashScreenView(
       navigateWhere: isLoaded,
       navigateRoute: const LoginScreen(),
-      //backgroundColor: Colors.white,
-      duration: const Duration(seconds: 7),
-      imageSrc: "assets/images/black_box_2.png",
+      duration: const Duration(seconds: 2),
+      //speed: const Duration(milliseconds: 100),
+      imageSrc: "assets/images/Vault.png",
+      logoSize: 450,
 
-      text: WavyAnimatedText("Welcome To The Black Box...",
+      text: WavyAnimatedText(".............",
         textStyle: const TextStyle(
         color: Colors.black,
         fontSize: 32.0,

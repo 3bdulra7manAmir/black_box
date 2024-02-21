@@ -4,14 +4,15 @@ AppBar defaultAppBar({          //Constructor Calls These Parameters whenever Th
   required String appBarTitle, //AppBar Title.
   IconButton? iconButton,     //IF u WANT icons in the AppBar!.
   Color? appbarColor,
-  IconButton? backwordArrow
+  IconButton? backwordArrow,
+  double? elevation,
   
 })
 
 {
   return AppBar(
     backgroundColor: appbarColor,
-    //elevation: 3,
+    elevation: elevation,
     
     title: Text(appBarTitle, style: const TextStyle(color: Colors.deepPurple)),              //AppBar Title in a String Varaible Will be used in a TEXT Widget... Just pass it Tgat String.
     leading: backwordArrow,

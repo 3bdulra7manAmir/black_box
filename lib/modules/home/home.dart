@@ -1,4 +1,4 @@
-import 'package:black_box/logic/database/details.dart';
+import 'package:black_box/models/database/details.dart';
 import 'package:black_box/utils/appbar.dart';
 import 'package:black_box/utils/drawer.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
 
         drawer: defaultDrawer(context, ),
-        appBar: defaultAppBar(appBarTitle: "Hi,... \t\t\t$username",),
+        appBar: defaultAppBar(appBarTitle: "Hi,... \t\t\t$username", elevation: 3),
 
         body: Padding(
           padding: const EdgeInsets.all(10),

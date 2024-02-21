@@ -1,4 +1,4 @@
-import 'package:black_box/modules/base/login.dart';
+import 'package:black_box/modules/login/login.dart';
 import 'package:black_box/utils/appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +30,9 @@ bool _obscureText = true;
               );
             },
             icon: const Icon(Icons.arrow_back),
-          )),
+          ),
+          elevation: 3,
+          ),
 
       body: Center(
         child: Padding(
@@ -54,10 +56,15 @@ bool _obscureText = true;
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    child: Image.asset("assets/images/sc_assault.jpg",
-                      width: 250,
-                      height: 250,
-                      fit: BoxFit.cover,),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          child: Image.asset(
+                            "assets/images/sc_assault.jpg",
+                            width: 250,
+                            height: 250,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                   ),
 
                   const SizedBox(height: 25,),

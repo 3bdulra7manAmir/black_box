@@ -1,5 +1,5 @@
-import 'package:black_box/modules/base/home.dart';
-import 'package:black_box/modules/base/register.dart';
+import 'package:black_box/modules/home/home.dart';
+import 'package:black_box/modules/register/register.dart';
 import 'package:flutter/material.dart';
 
 
@@ -53,7 +53,6 @@ bool _obscureText = true;
 
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-
                   child: Container(
                     width: 700,
                     height: 515,
@@ -63,44 +62,53 @@ bool _obscureText = true;
                       children: <Widget>[
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset("assets/images/sc_assault.jpg",
-                          width: 250,
-                          height: 250,
-                          fit: BoxFit.cover,
-                                                ),
+                          child: Image.asset(
+                            "assets/images/sc_assault.jpg",
+                            width: 250,
+                            height: 250,
+                            fit: BoxFit.cover,
+                          ),
                         ),
 
                         const SizedBox(height: 30,),
 
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Email',
-                            border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.email)
+                        Container(
+                          width: 500,
+                          //height: ,
+                          child: const TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Email',
+                              border: OutlineInputBorder(),
+                              prefixIcon: Icon(Icons.email)
+                            ),
                           ),
                         ),
 
                         const SizedBox(height:  10),
 
-                        TextField(
-                          obscureText: _obscureText,
-                          decoration: InputDecoration(
-                              labelText: 'Password',
-                              border: const OutlineInputBorder(),
-                              prefixIcon: const Icon(Icons.password_rounded),
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  _obscureText
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
+                        Container(
+                          width: 500,
+                          //height: ,
+                          child: TextField(
+                            obscureText: _obscureText,
+                            decoration: InputDecoration(
+                                labelText: 'Password',
+                                border: const OutlineInputBorder(),
+                                prefixIcon: const Icon(Icons.password_rounded),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _obscureText
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _obscureText = !_obscureText;
+                                    });
+                                  },
+                                )
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    _obscureText = !_obscureText;
-                                  });
-                                },
-                              )
-                              ),
+                          ),
                         ),
 
                         const SizedBox(height:  20),
