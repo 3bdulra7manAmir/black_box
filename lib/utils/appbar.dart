@@ -6,7 +6,6 @@ AppBar defaultAppBar({          //Constructor Calls These Parameters whenever Th
   Color? appbarColor,
   IconButton? backwordArrow,
   double? elevation,
-  
 })
 
 {
@@ -14,8 +13,8 @@ AppBar defaultAppBar({          //Constructor Calls These Parameters whenever Th
     backgroundColor: appbarColor,
     elevation: elevation,
     
-    title: Text(appBarTitle, style: const TextStyle(color: Colors.deepPurple)),              //AppBar Title in a String Varaible Will be used in a TEXT Widget... Just pass it Tgat String.
-    leading: backwordArrow,
+    title: Text(appBarTitle, style: const TextStyle(color: Colors.deepPurple)), //AppBar Title in a String Varaible Will be used in a TEXT Widget... Just pass it Tgat String.
+    leading: backwordArrow,               //An Arrow To back in Pages
     actions: <Widget>[                     //ICON will be in Actions Not Leadings.
       if (iconButton != null) iconButton, //A Failur Safe Gurad to Prevent NULL error and also Check if there is an ICON or NOT.
     ],

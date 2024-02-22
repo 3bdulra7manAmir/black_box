@@ -5,7 +5,7 @@ import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/login/login.dart';
 import 'package:flutter/material.dart';
 
-Widget defaultDrawer(BuildContext context) {
+Widget defaultDrawer(BuildContext context){
   return SafeArea(
       child: Drawer(
     // Add a ListView to the drawer. This ensures the user can scroll
@@ -37,9 +37,7 @@ Widget defaultDrawer(BuildContext context) {
               title: const Text("Home"),
               leading: const Icon(Icons.home),
               onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Home()),
-                );
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()),);
               }),
           ListTile(
               title: const Text("Dark mode"),
@@ -53,9 +51,7 @@ Widget defaultDrawer(BuildContext context) {
               title: const Text("Logut"),
               leading: const Icon(Icons.logout),
               onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()),);
               }),
           Container(
             margin: const EdgeInsets.only(bottom: 12, left: 17),
