@@ -2,7 +2,7 @@
 
 import 'package:black_box/const/colors.dart';
 import 'package:black_box/modules/home/home.dart';
-import 'package:black_box/modules/login/login.dart';
+import 'package:black_box/modules/splash/welcome.dart';
 import 'package:flutter/material.dart';
 
 Widget defaultDrawer(BuildContext context){
@@ -51,7 +51,7 @@ Widget defaultDrawer(BuildContext context){
               title: const Text("Logut"),
               leading: const Icon(Icons.logout),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Welcome()),);
               }),
           Container(
             margin: const EdgeInsets.only(bottom: 12, left: 17),

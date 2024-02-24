@@ -1,5 +1,5 @@
 import 'package:black_box/modules/home/home.dart';
-import 'package:black_box/modules/register/register.dart';
+import 'package:black_box/backup/register/register.dart';
 import 'package:flutter/material.dart';
 
 
@@ -125,18 +125,6 @@ bool _obscureText = true;
                             },
                             child: const Text('Login', style: TextStyle(color: Colors.black)),
                           ),
-                        ),
-
-                        const SizedBox(height:  20),
-
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const SignupScreen()),
-                            );
-                          },
-                          child: const Text('Don\'t have an Account Yet?\t\tSignUp',  style: TextStyle(color: Colors.black)),
                         ),
                       ],
                     ),
