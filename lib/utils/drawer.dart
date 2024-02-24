@@ -1,8 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'package:black_box/const/colors.dart';
+import 'package:black_box/const/popup_menu_item.dart';
 import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/splash/welcome.dart';
+import 'package:popover/popover.dart';
 import 'package:flutter/material.dart';
 
 Widget defaultDrawer(BuildContext context){
@@ -46,7 +48,12 @@ Widget defaultDrawer(BuildContext context){
           ListTile(
               title: const Text("About"),
               leading: const Icon(Icons.campaign),
-              onTap: () {}),
+              onTap: () {
+                showPopover(context: context, bodyBuilder: (context) => const ItemsMenu(),
+                width: 250,
+                height: 150,
+              );
+              }),
           ListTile(
               title: const Text("Logut"),
               leading: const Icon(Icons.logout),

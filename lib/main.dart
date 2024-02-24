@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import
 
-import 'package:black_box/bloc/bloc_observer.dart';
+import 'package:black_box/const/bloc/bloc_observer.dart';
 import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/splash/welcome.dart';
 import 'package:bloc/bloc.dart';
@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return  const MaterialApp(
-      home: Welcome(),
+      home: Home(),
       //color: Colors.red,
       debugShowCheckedModeBanner: false,
     );

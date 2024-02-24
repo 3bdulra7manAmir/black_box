@@ -1,5 +1,6 @@
 import 'package:black_box/modules/home/home.dart';
-import 'package:black_box/backup/register/register.dart';
+import 'package:black_box/backup/register.dart';
+import 'package:black_box/utils/button.dart';
 import 'package:flutter/material.dart';
 
 
@@ -60,18 +61,18 @@ bool _obscureText = true;
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
-                            "assets/images/sc_assault.jpg",
-                            width: 250,
-                            height: 250,
-                            fit: BoxFit.cover,
+                        Container(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              "assets/images/sc_assault.jpg",
+                              width: 250,
+                              height: 250,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-
                         const SizedBox(height: 30,),
-
                         Container(
                           width: 500,
                           //height: ,
@@ -83,9 +84,7 @@ bool _obscureText = true;
                             ),
                           ),
                         ),
-
                         const SizedBox(height:  10),
-
                         Container(
                           width: 500,
                           //height: ,
@@ -106,25 +105,15 @@ bool _obscureText = true;
                                       _obscureText = !_obscureText;
                                     });
                                   },
-                                )
-                                ),
+                                )),
                           ),
                         ),
-
-                        const SizedBox(height:  20),
-
+                        const SizedBox(height: 20),
                         Container(
                           width: 130,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Home()),
-                              );
-                            },
-                            child: const Text('Login', style: TextStyle(color: Colors.black)),
-                          ),
+                          child: defaultButton(btnText: "Login", btnFunction: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()),);
+                          })
                         ),
                       ],
                     ),

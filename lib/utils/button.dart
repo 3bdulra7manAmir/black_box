@@ -12,12 +12,15 @@ Widget defaultButton({                //Constructor Calls These Parameters whene
     SizedBox(
         width:  Specs().btnWidth_150, //SizedBox not Button itself Width From a Custom Utilites Class.
         height: Specs().btnHeight_40, //SizedBox not Button itself Height From a Custom Utilites Class.
-        //color:  Specs().cCyanRGB,
+        //color:  Specs().cCyanRGB,   //SizedBox 
 
         child: MaterialButton(
           onPressed: btnFunction,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0),),
-          color: Specs().cCyanRGB, // Set the background color of the button.
-          child: Text(btnText.toUpperCase(), style: const TextStyle(color: Colors.white),), // Adjust the padding as needed.
+          color: Colors.white, // Set the background color of the button.
+          child: Text(//btnText.toUpperCase(), //UpperCase Converter
+            btnText,
+            style: const TextStyle(color: Colors.black),), // Adjust the padding as needed.
+                              //Button Text Color To Black
         ),
     );
