@@ -26,7 +26,7 @@ class Welcome extends StatelessWidget {
       navigateRoute: const LoginScreen(),
       duration: const Duration(seconds: 2),
       //speed: const Duration(milliseconds: 100),
-      imageSrc: "assets/images/Vault.png",
+      imageSrc: "assets/images/vault.png",
       logoSize: 450,
 
       text: WavyAnimatedText(".............",

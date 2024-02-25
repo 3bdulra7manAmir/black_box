@@ -1,4 +1,4 @@
-import 'package:black_box/const/colors.dart';
+import 'package:black_box/const/const.dart';
 import 'package:black_box/backup/register_backup.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:black_box/const/colors.dart';
-import 'package:black_box/const/popup_menu_item.dart';
+import 'package:black_box/const/const.dart';
+import 'package:black_box/const/about_info.dart';
 import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/splash/welcome.dart';
 import 'package:popover/popover.dart';
@@ -49,10 +49,24 @@ Widget defaultDrawer(BuildContext context){
               title: const Text("About"),
               leading: const Icon(Icons.campaign),
               onTap: () {
-                showPopover(context: context, bodyBuilder: (context) => const ItemsMenu(),
-                width: 250,
-                height: 150,
-              );
+                showAlertDialog(context);
+                //1
+          //       showPopover(
+          //   context: context,
+          //   bodyBuilder: (context) => const ListItems(),
+          //   onPop: () => print('Popover was popped!'),
+          //   direction: PopoverDirection.bottom,
+          //   width: 200,
+          //   height: 400,
+          //   arrowHeight: 15,
+          //   arrowWidth: 30,
+          // );
+          //2
+              //MaterialPageRoute(builder: (context) => const ItemsMenu()); 
+          //3
+              // showPopover(context: context, bodyBuilder: (context) => const ItemsMenu(),
+                // width: 100,
+                // height: 85,
               }),
           ListTile(
               title: const Text("Logut"),
@@ -62,7 +76,7 @@ Widget defaultDrawer(BuildContext context){
               }),
           Container(
             margin: const EdgeInsets.only(bottom: 12, left: 17),
-            child: const Text("Shadow® 2024",
+            child: const Text("Shadow Company® 2024",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           )
         ]),

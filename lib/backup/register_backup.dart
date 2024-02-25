@@ -1,4 +1,4 @@
-import 'package:black_box/const/colors.dart';
+import 'package:black_box/const/const.dart';
 import 'package:black_box/modules/login/login.dart';
 import 'package:flutter/material.dart';
 

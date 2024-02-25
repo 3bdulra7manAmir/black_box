@@ -23,6 +23,9 @@ class Specs {
 
   Color cCyanRGB = const Color.fromARGB(255, 55, 140, 150);
 
+  Color cBlackRGB = const Color.fromARGB(0, 0, 0, 0);
+  Color cBlack = (Colors.black);
+
   double btnWidth_150 = 150.0;
   double btnWidth_250 = 250.0;
   double btnWidth_350 = 350.0;

@@ -8,10 +8,9 @@ import 'package:window_manager/window_manager.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  Bloc.observer = const SimpleBlocObserver();
-  blocMain();
-
   WidgetsFlutterBinding.ensureInitialized();
+  //await windowManager.ensureInitialized(); //Not Necessary BUT KEPT
+
   await WindowManager.instance.setResizable(false);
 
   await WindowManager.instance.setMinimumSize(const Size(200,  200)); // Minimum size
@@ -20,6 +19,9 @@ void main() async {
   // setting min and max with the same size to prevent resizing
   //await DesktopWindow.setMinWindowSize(const Size(640,480));
   //await DesktopWindow.setMaxWindowSize(const Size(640,480));
+
+  Bloc.observer = const SimpleBlocObserver();
+  blocMain();
 
   runApp(const MainApp());
 }

@@ -1,4 +1,4 @@
-import 'package:black_box/const/colors.dart';
+import 'package:black_box/const/const.dart';
 import 'package:flutter/material.dart';
 
 Widget defaultButton({                //Constructor Calls These Parameters whenever The code is being compiled every time.
@@ -20,7 +20,7 @@ Widget defaultButton({                //Constructor Calls These Parameters whene
           color: Colors.white, // Set the background color of the button.
           child: Text(//btnText.toUpperCase(), //UpperCase Converter
             btnText,
-            style: const TextStyle(color: Colors.black),), // Adjust the padding as needed.
+            style: TextStyle(color: Specs().cBlack),), // Adjust the padding as needed.
                               //Button Text Color To Black
         ),
     );
