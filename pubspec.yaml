@@ -9,12 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sqflite: ^2.3.2
   flutter_bloc: ^8.1.4
   bloc: ^8.1.3
   tbib_splash_screen: ^1.0.0
-  window_manager: ^0.0.1+1
-  popover: ^0.3.0
+  window_manager: ^0.3.8
   desktop_context_menu: ^0.1.1
+  path: ^1.9.0
 
 
 dev_dependencies:
@@ -30,3 +31,13 @@ flutter:
     - assets/images/background.jpg
     - assets/images/vault.png
     - assets/images/tmc.png
+    - assets/images/lib1-nobg-notext.png
+    - assets/images/lib1-nobg.png
+    - assets/images/lib2.png
+    - assets/images/lib3-nobg.png
+    - assets/images/lib3.png
+    - assets/images/lib4.png
+    - assets/images/corru_discov1.png
+    - assets/images/corru_discov2.png
+    - assets/images/corru_discov3.png
+    - assets/images/corru_discov4.png

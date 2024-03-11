@@ -5,6 +5,15 @@ import 'package:flutter/material.dart';
 
 // Utilites Class
 class Specs {
+
+colors(){
+
+}
+
+
+widths(){
+
+}
   Color cBlue_200 = (Colors.blue[200])!;
   Color cBlue_300 = (Colors.blue[300])!;
   Color cBlue_400 = (Colors.blue[400])!;
@@ -20,6 +29,13 @@ class Specs {
   Color cGray_200 = (Colors.grey[200])!;
   Color cGray_300 = (Colors.grey[300])!;
   Color cGray_400 = (Colors.grey[400])!;
+
+  Color cPurple_100 = (Colors.purple[100])!;
+  Color cPurple_150 = (const Color.fromARGB(255, 165, 109, 174));
+  Color cPurple_200 = (Colors.purple[200])!;
+  Color cPurple_300 = (Colors.purple[300])!;
+  Color cPurple_400 = (Colors.purple[400])!;
+  Color cPurple_500 = (Colors.purple[500])!;
 
   Color cCyanRGB = const Color.fromARGB(255, 55, 140, 150);
 

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace
+
 import 'package:black_box/modules/login/login.dart';
 import 'package:black_box/utils/appbar.dart';
 import 'package:flutter/material.dart';

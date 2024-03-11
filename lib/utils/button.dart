@@ -6,7 +6,7 @@ Widget defaultButton({                //Constructor Calls These Parameters whene
   required Function()? btnFunction,   //Button Action.
   double? btnWidth,                   //Button Width.
   double? btnHeight,                  //Button Height.
-  //Color? btnColor,
+  Color? btnColor,
   //required Decoration?          btnDecoration,
 }) =>
     SizedBox(
@@ -20,7 +20,7 @@ Widget defaultButton({                //Constructor Calls These Parameters whene
           color: Colors.white, // Set the background color of the button.
           child: Text(//btnText.toUpperCase(), //UpperCase Converter
             btnText,
-            style: TextStyle(color: Specs().cBlack),), // Adjust the padding as needed.
+            style: TextStyle(color: btnColor),), // Adjust the padding as needed.
                               //Button Text Color To Black
         ),
     );

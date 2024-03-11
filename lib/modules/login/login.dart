@@ -1,5 +1,6 @@
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers
+
 import 'package:black_box/modules/home/home.dart';
-import 'package:black_box/backup/register.dart';
 import 'package:black_box/utils/button.dart';
 import 'package:flutter/material.dart';
 

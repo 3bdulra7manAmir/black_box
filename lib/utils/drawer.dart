@@ -4,7 +4,6 @@ import 'package:black_box/const/const.dart';
 import 'package:black_box/const/about_info.dart';
 import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/splash/welcome.dart';
-import 'package:popover/popover.dart';
 import 'package:flutter/material.dart';
 
 Widget defaultDrawer(BuildContext context){
