@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:black_box/const/bloc/bloc_observer.dart';
+import 'package:black_box/models/database/db_init.dart';
 import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/splash/welcome.dart';
 import 'package:bloc/bloc.dart';
@@ -19,7 +20,8 @@ void main() async {
   // setting min and max with the same size to prevent resizing
   //await DesktopWindow.setMinWindowSize(const Size(640,480));
   //await DesktopWindow.setMaxWindowSize(const Size(640,480));
-
+  
+  dbInit();
   Bloc.observer = const SimpleBlocObserver();
   blocMain();
 

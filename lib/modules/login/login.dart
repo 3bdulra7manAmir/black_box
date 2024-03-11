@@ -1,6 +1,6 @@
-// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers, avoid_print
 
-import 'package:black_box/modules/home/home.dart';
+import 'package:black_box/models/login_checker.dart';
 import 'package:black_box/utils/button.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +13,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+final userController = TextEditingController();
+final passwordController = TextEditingController();
 
 bool _obscureText = true;
 
@@ -77,11 +80,13 @@ bool _obscureText = true;
                         Container(
                           width: 500,
                           //height: ,
-                          child: const TextField(
-                            decoration: InputDecoration(
-                              labelText: 'Email',
+                          child: TextField(
+                            controller: userController,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              labelText: 'Username',
                               border: OutlineInputBorder(),
-                              prefixIcon: Icon(Icons.email)
+                              prefixIcon: Icon(Icons.castle)
                             ),
                           ),
                         ),
@@ -91,6 +96,8 @@ bool _obscureText = true;
                           //height: ,
                           child: TextField(
                             obscureText: _obscureText,
+                            controller: passwordController,
+                            keyboardType: TextInputType.none,
                             decoration: InputDecoration(
                                 labelText: 'Password',
                                 border: const OutlineInputBorder(),
@@ -113,7 +120,9 @@ bool _obscureText = true;
                         Container(
                           width: 130,
                           child: defaultButton(btnText: "Login", btnFunction: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()),);
+                            String user = userController.text;
+                            String password = passwordController.text;
+                            LoginChecker(context: context).checker(user, password);
                           })
                         ),
                       ],
