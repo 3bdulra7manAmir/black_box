@@ -1,7 +1,15 @@
 import 'package:black_box/const/const.dart';
 import 'package:black_box/utils/appbar.dart';
 import 'package:black_box/utils/drawer.dart';
+import 'package:black_box/utils/dropdownmenu.dart';
+import 'package:black_box/utils/textfield.dart';
 import 'package:flutter/material.dart';
+
+
+List<String> itemsList = <String>['Mouse', 'Keyboard', 'Power Cable', 'VGA Cable', 'HDMI Cable', 'Neon Lamb', 'CRT Screen', 'Case', 'Ethernet'];
+List<String> specsList = <String>['Color', 'Serial Number', 'Brand'];
+String dropdownitemsValue = itemsList.first;
+String dropdownspecsValue = specsList.first;
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -10,17 +18,10 @@ class AdminDashboard extends StatefulWidget {
   State<AdminDashboard> createState() => _AdminDashboardState();
 }
 
-List<String> dropDownMenuList = <String>
-[
-  'احصاء طلبة',
-  'احصاء عاملين',
-  'احصاء مدارس',
-  'عجز وزيادة مدارس'
-];
-
 class _AdminDashboardState extends State<AdminDashboard> {
 
-String dropdownValue = dropDownMenuList.first;
+String dropdownitemsValue = itemsList.first; // Initialize dropdownValue here
+String dropdownspecsValue = specsList.first; // Initialize dropdownValue here
 
   @override
   Widget build(BuildContext context) {
@@ -34,38 +35,51 @@ String dropdownValue = dropDownMenuList.first;
             children: [
               Column(
                 children: [
-                  Row(
-                    children: [
-                      DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
-      items: dropDownMenuList.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    ),
-                      ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
-                      const SizedBox( height: 25,),
-                ],
-              ),
-            ],
-          ),
-        ]
-        ),
+                Row(
+                  children: [
+                    defultDropDownMenu(
+                        wordsList: itemsList,
+                        dropdownValueDefultValue: dropdownitemsValue,
+                        dropDownMenuIcon: const Icon(Icons.arrow_downward),
+                        elevationValue: 1,
+                        underline: Container(height: 2,color: Colors.deepPurple,),
+                        textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                        onChangedFunction: (String? value) {setState(() {dropdownitemsValue = value!;});},
+                        containerWidth: 110
+                        ),
+                    const SizedBox(width: 45,),
+                    defaultTextField(
+                      containerWidth: 200,
+                    ),
+                    const SizedBox(width: 20,),
+                  ],
+                ),
+                const SizedBox(height: 30,),
+                Row(
+                  children: [
+                       defultDropDownMenu(
+                        wordsList: specsList,
+                        dropdownValueDefultValue: dropdownspecsValue,
+                        dropDownMenuIcon: const Icon(Icons.arrow_downward),
+                        elevationValue: 1,
+                        underline: Container(height: 2,color: Colors.deepPurple,),
+                        textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                        onChangedFunction: (String? value) {setState(() {dropdownspecsValue = value!;});},
+                        containerWidth: 120
+                      ),
+                      const SizedBox(width: 35),
+                      defaultTextField(
+                      containerWidth: 200,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30,),
+                Row(children: [const Text("Quantity: \t"), defaultTextField(containerWidth: 100)] ),
+                const SizedBox(height: 40,),
+                Row(children: [ElevatedButton.icon(onPressed: () {}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),],)
+              ],
+            ),
+          ]),
       ),
     ),
     );

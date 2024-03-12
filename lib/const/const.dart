@@ -7,14 +7,6 @@ import 'package:intl/intl.dart';
 // Utilites Class
 class Specs {
 
-colors(){
-
-}
-
-
-widths(){
-
-}
   Color cBlue_200 = (Colors.blue[200])!;
   Color cBlue_300 = (Colors.blue[300])!;
   Color cBlue_400 = (Colors.blue[400])!;
@@ -70,32 +62,6 @@ class HexColor extends Color {
 
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
-
-
-//=======================================================================
-//Not Prefred TAble - BACKup Table
-
-// Table(
-//                   border: TableBorder.all(color: Colors.black),
-//                   children: const [
-//                     TableRow(children: [
-//                       Text('Cell 1'),
-//                       Text('Cell 2'),
-//                       Text('Cell 3'),
-//                     ]),
-//                     TableRow(children: [
-//                       Text('Cell 4'),
-//                       Text('Cell 5'),
-//                       Text('Cell 6'),
-//                     ]),
-//                     TableRow(children: [
-//                       Text('Cell 7'),
-//                       Text('Cell 8'),
-//                       Text('Cell 9'),
-//                     ]),
-//                   ],
-//                 ),
-//=======================================================================
 
 
 dynamic toArNumber(dynamic enNumber) {

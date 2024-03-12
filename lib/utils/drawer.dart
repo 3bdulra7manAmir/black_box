@@ -2,6 +2,7 @@
 
 import 'package:black_box/const/const.dart';
 import 'package:black_box/const/about_info.dart';
+import 'package:black_box/modules/dashboard/dashboard.dart';
 import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/splash/welcome.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,12 @@ Widget defaultDrawer(BuildContext context){
               leading: const Icon(Icons.home),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()),);
+              }),
+          ListTile(
+              title: const Text("Admin"),
+              leading: const Icon(Icons.admin_panel_settings_rounded),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AdminDashboard()),);
               }),
           ListTile(
               title: const Text("Dark mode"),
