@@ -1,7 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:black_box/const/const.dart';
-import 'package:black_box/modules/corruption_discovery/corru_discov.dart';
+import 'package:black_box/modules/corru_disco/corru_discov.dart';
 import 'package:black_box/modules/library/lib.dart';
 import 'package:black_box/utils/appbar.dart';
 import 'package:black_box/utils/button.dart';

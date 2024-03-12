@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 
 // Utilites Class
@@ -95,3 +96,19 @@ class HexColor extends Color {
 //                   ],
 //                 ),
 //=======================================================================
+
+
+dynamic toArNumber(dynamic enNumber) {
+  if (enNumber.toString().isNotEmpty) {
+    NumberFormat formatter = NumberFormat('#.##', 'ar_EG');
+    dynamic arNumber = formatter.format(enNumber);
+    return arNumber.toString();
+  }
+  else{
+    NumberFormat formatter = NumberFormat('#.##', 'ar_EG');
+    dynamic arNumber = formatter.format(enNumber);
+    return arNumber;
+  }
+}
+
+
