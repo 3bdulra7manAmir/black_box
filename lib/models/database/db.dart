@@ -5,21 +5,14 @@ import 'package:isar/isar.dart';
 part 'db.g.dart';
 
 @Collection()
-class UnkownYet
+class Items
 {
 Id id = Isar.autoIncrement;
 
-late String mouse;
-
-// late String keyboard;
-// late String powerCable;
-// late String vgaCable;
-// late String hdmiCable;
-// late String cases;
-// late String crtScreens;
-// late String ethernetCables;
-// late String neonLamb;
-
-
+String? type;
+String? brand;
+String? color;
+String? serialNumber;
+String? destnation;
 
 }

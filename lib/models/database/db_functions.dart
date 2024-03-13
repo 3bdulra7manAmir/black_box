@@ -14,7 +14,7 @@ static Future<void> initalize() async {
   // GET THE PATH DIR FOR WHERE ALL OF THIS IS GONNA BE SAVED!.
   final dir = await getApplicationDocumentsDirectory();
 
-  isar = await Isar.open([UnkownYetSchema], directory: dir.path);
+  isar = await Isar.open([ItemsSchema], directory: dir.path);
 
 }
 

@@ -1,11 +1,11 @@
-class DBops
-{
+// class DBops
+// {
 
-// C R E A T
+// // C R E A T
 
-// R E A D
+// // R E A D
 
-// U P D A T E
+// // U P D A T E
 
-// D E L E T E
-}
+// // D E L E T E
+// }
