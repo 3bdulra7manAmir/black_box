@@ -45,7 +45,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                 Row(
                   children: [
                     const Text("Item:"),
-                    const SizedBox(width: 30,),
+                    const SizedBox(width: 20,),
                     defultDropDownMenu(
                         wordsList: itemsList,
                         dropdownValueDefultValue: dropdownitemsValue,
@@ -59,7 +59,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                     const SizedBox(width: 50,),
 
                     const Text("Brand:"),
-                    const SizedBox(width: 30,),
+                    const SizedBox(width: 20,),
                     defultDropDownMenu(
                         wordsList: brandList,
                         dropdownValueDefultValue: dropdownbrandValue,
@@ -73,7 +73,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                     const SizedBox(width: 50,),
 
                     const Text("Color:"),
-                    const SizedBox(width: 30,),
+                    const SizedBox(width: 20,),
                     defultDropDownMenu(
                         wordsList: specsList,
                         dropdownValueDefultValue: dropdownspecsValue,
@@ -89,8 +89,12 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                 const SizedBox(height: 30,),
                 Row(
                   children: [
-                    const Text("Destnation:"),
-                    const SizedBox(width: 30,),
+                const Text("S/N:"),
+                const SizedBox(width: 20,),
+                defaultTextField(containerWidth: 200,),
+                const SizedBox(width: 20,),
+                const Text("Destnation:"),
+                const SizedBox(width: 20,),
                 defultDropDownMenu(
                   dropdownValueDefultValue: dropdowndestnationValue,
                   dropDownMenuIcon: const Icon(Icons.arrow_downward),
@@ -101,9 +105,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                   textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                   containerWidth: 165,
                 ),
-                const SizedBox(width: 80,),
-                const Text("Quantity:"), defaultTextField(containerWidth: 100, inputType: TextInputType.number),
-                const SizedBox(width: 80,),
+                const SizedBox(width: 70,),
                 ElevatedButton.icon(onPressed: () {}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
           ]
         ),
