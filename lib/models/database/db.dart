@@ -4,15 +4,14 @@ import 'package:isar/isar.dart';
 
 part 'db.g.dart';
 
-@Collection()
-class Items
+@Collection()      //@Collection mean Creating a Table
+class Items       //Table name is the same as class name then table name is Items.
 {
-Id id = Isar.autoIncrement;
-
-String? type;
-String? brand;
-String? color;
-String? serialNumber;
-String? destnation;
+Id id = Isar.autoIncrement; //ID Column
+String? type;               //Type Column
+String? brand;              //Brand Column
+String? color;              //Color Column
+String? serialNumber;       //SN Column
+String? destnation;         //Dest Column
 
 }

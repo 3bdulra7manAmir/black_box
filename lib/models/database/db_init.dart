@@ -1,11 +1,21 @@
-// class DBops
-// {
+import 'package:black_box/models/database/db.dart';
+import 'package:isar/isar.dart';
+import 'package:path_provider/path_provider.dart';
 
-// // C R E A T
+class DBinit
+{
 
-// // R E A D
+//Isar Database Opject Creation - so we could use an instance of the DataBase.
+static late Isar isar;
 
-// // U P D A T E
+// I N I T A L I Z E - C R E A T - D A T A B A S E.
+static Future<void> initalizeDataBase() async {
 
-// // D E L E T E
-// }
+  // GET THE PATH DIR FOR WHERE ALL OF THIS IS GONNA BE SAVED!.
+  final dir = await getApplicationDocumentsDirectory();
+              //Table Name or Schema...     //Current PATH...
+  isar = await Isar.open([ItemsSchema], directory: dir.path);
+
+}
+
+}
