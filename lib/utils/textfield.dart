@@ -9,6 +9,7 @@ Widget defaultTextField({
   double? containerWidth,
   TextInputType? inputType,
   TextEditingController? textController,
+  Function(String)? onSubmitted,
 
 }) =>
 
@@ -17,6 +18,7 @@ SizedBox(
   //height: ,
   
   child: TextField(
+    onSubmitted: onSubmitted,
     keyboardType: inputType,
     controller: textController,
     maxLines: 1,

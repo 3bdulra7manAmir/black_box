@@ -1,3 +1,7 @@
+// ignore_for_file: unused_import
+
+import 'dart:io';
+
 import 'package:black_box/models/database/db.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -17,5 +21,13 @@ static Future<void> initalizeDataBase() async {
   isar = await Isar.open([ItemsSchema], directory: dir.path);
 
 }
+
+// Future<Isar> openDB() async {
+//     if (Isar.instanceNames.isEmpty) {
+//       Directory dir = await getApplicationDocumentsDirectory();
+//       return await Isar.open([ItemsSchema], directory: dir.path);
+//     }
+//     return Future.value(Isar.getInstance());
+//   }
 
 }

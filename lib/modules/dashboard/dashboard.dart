@@ -124,7 +124,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                         containerWidth: 165,
                       ),
                       const SizedBox(width: 70,),
-                      ElevatedButton.icon(onPressed: () {}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
+                      ElevatedButton.icon(onPressed: () {DashBoardCubit.get(context).add();}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
                 ]
               ),
                     ],

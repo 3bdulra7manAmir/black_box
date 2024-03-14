@@ -4,52 +4,49 @@ import 'package:black_box/models/database/db.dart';
 
 //Isar Database Object Creation - so we could use an instance of the DataBase.
 //And it is Global not in a Spesific class so we don't need to create it in every class.
-late Isar isar;
+late Isar isar; 
+
 
 class DBops
 {
-
-// late Future<Isar> db;
-
-//   DBops() {
-//     db = DBinit();
-//   }
-
-
 // C R E A T - I N S E R T - A D D...
-Future<void> addItem(Items newItem) async
+Future<void> addItem(String item) async
 {
+  // Create a new Item Objetc
+  final newItem = Items()..type = item;
+
   //Save it to the DataBase
-  isar.writeTxnSync(() => isar.items.putSync(newItem));
+  await isar.writeTxn(() => isar.items.put(newItem));
 }
 
 // R E A D
 final List<Items> currentItems = [];
-Future<List<Items>> fetchItems() async
+Future<void> fetchItems() async
 {
   // fetch All items
   List<Items> fetchItems = await isar.items.where().findAll(); //returns all of em
   currentItems.clear(); //Clear The items list
   currentItems.addAll(fetchItems); // fetch then add all of em into the list
-  return fetchItems;
 }
 
 // U P D A T E
-Future<void> updateItem(int id, String newItem) async
+Future<void> updateItems(int id, String newItem) async
 {
   // fetch All items
-  final existingItems = await isar.items.get(id); //
+  final existingItems = await isar.items.get(id);
   
   if (existingItems != null){
     existingItems.type = newItem;
-    isar.writeTxnSync(() => isar.items.putSync(existingItems));
+    await isar.writeTxn(() => isar.items.put(existingItems));
+    await fetchItems();
   }
 }
 
 // D E L E T E
-Future<void> deleteItem(int id) async
+Future<void> deleteItems(int id) async
 {
-  isar.writeTxnSync(() => isar.items.deleteSync(id));
+  await isar.writeTxn(() => isar.items.delete(id));
+  await fetchItems();
 }
 
 }
