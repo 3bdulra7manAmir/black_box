@@ -44,7 +44,6 @@ Future<void> updateItems(int id, String newItem) async
   }
 }
 
-
 // D E L E T E
 Future<void> deleteItems(int id) async
 {
