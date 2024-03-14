@@ -4,12 +4,10 @@ import 'package:black_box/modules/dashboard/cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-class DashBoardCubit extends Cubit<DashBoardStates>{
-  DashBoardCubit() : super(InitializeDashBoardState());
-
-  static DashBoardCubit get(context) => BlocProvider.of(context);
-
-
+class DashBoardCubit extends Cubit<DashBoardStates>
+{
+DashBoardCubit() : super(InitializeDashBoardState());
+static DashBoardCubit get(context) => BlocProvider.of(context);
 
 Future<void> add({
   String type = '',               //Type Column  //not required cause i may but it in a null value

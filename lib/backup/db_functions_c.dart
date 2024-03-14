@@ -49,4 +49,6 @@ Future<void> deleteItems(int id) async
   await fetchItems();
 }
 
+  static initialize() {}
+
 }

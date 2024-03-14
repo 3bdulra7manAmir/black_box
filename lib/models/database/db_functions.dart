@@ -1,19 +1,12 @@
 import 'package:isar/isar.dart';
 import 'package:black_box/models/database/db.dart';
 
-
 //Isar Database Object Creation - so we could use an instance of the DataBase.
 //And it is Global not in a Spesific class so we don't need to create it in every class.
-late Isar isar;
 
 class DBops
 {
-
-// late Future<Isar> db;
-
-//   DBops() {
-//     db = DBinit();
-//   }
+late Isar isar;
 
 
 // C R E A T - I N S E R T - A D D...
@@ -22,7 +15,6 @@ Future<void> addItem(Items newItem) async
   //Save it to the DataBase
   isar.writeTxnSync(() => isar.items.putSync(newItem));
 }
-
 // R E A D
 final List<Items> currentItems = [];
 Future<List<Items>> fetchItems() async
@@ -33,7 +25,6 @@ Future<List<Items>> fetchItems() async
   currentItems.addAll(fetchItems); // fetch then add all of em into the list
   return fetchItems;
 }
-
 // U P D A T E
 Future<void> updateItem(int id, String newItem) async
 {
@@ -45,7 +36,6 @@ Future<void> updateItem(int id, String newItem) async
     isar.writeTxnSync(() => isar.items.putSync(existingItems));
   }
 }
-
 // D E L E T E
 Future<void> deleteItem(int id) async
 {
