@@ -18,7 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
-final userController = TextEditingController();
+final usernameController = TextEditingController();
 final passwordController = TextEditingController();
 
 bool _obscureText = true;
@@ -90,7 +90,7 @@ bool _obscureText = true;
                                 width: 500,
                                 //height: ,
                                 child: TextField(
-                                  controller: userController,
+                                  controller: usernameController,
                                   keyboardType: TextInputType.text,
                                   decoration: const InputDecoration(
                                     labelText: 'Username',
@@ -104,6 +104,11 @@ bool _obscureText = true;
                                 width: 500,
                                 //height: ,
                                 child: TextField(
+                                  onSubmitted: (value) { //value is not necessary just to complete the fun //to make Enter Key Works Fine.
+                                  String username = usernameController.text;
+                                  String password = passwordController.text;
+                                  LoginChecker(context: context).checker(username, password);
+                                  },
                                   obscureText: _obscureText,
                                   controller: passwordController,
                                   keyboardType: TextInputType.none,
@@ -129,7 +134,7 @@ bool _obscureText = true;
                               Container(
                                 width: 130,
                                 child: defaultButton(btnText: "Login", btnFunction: (){
-                                  String user = userController.text;
+                                  String user = usernameController.text;
                                   String password = passwordController.text;
                                   LoginChecker(context: context).checker(user, password);
                                 })

@@ -19,14 +19,16 @@ String dropdownspecsValue = specsList.first;
 String dropdownbrandValue = brandList.first;
 String dropdowndestnationValue = destnationList.first;
 
-class AdminDashboard extends StatefulWidget {
+class AdminDashboard extends StatefulWidget
+{
   const AdminDashboard({super.key});
 
   @override
   State<AdminDashboard> createState() => _AdminDashboardState();
 }
 
-class _AdminDashboardState extends State<AdminDashboard> {
+class _AdminDashboardState extends State<AdminDashboard>
+{
 
 String dropdownitemsValue = itemsList.first; // Initialize dropdownValue here
 String dropdownspecsValue = specsList.first; // Initialize dropdownValue here
@@ -34,12 +36,14 @@ String dropdownbrandValue = brandList.first; // Initialize dropdownValue here
 String dropdowndestnationValue = destnationList.first; // Initialize dropdownValue here
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return BlocProvider<DashBoardCubit>(
       create: (BuildContext context) => DashBoardCubit(),
       child: BlocConsumer<DashBoardCubit, DashBoardStates>(
         listener: (context, state){},
-        builder: (context, state){
+        builder: (context, state)
+        {
         return SafeArea(
           child: Scaffold(
             appBar: defaultAppBar(appBarTitle: "Admin", appbarColor: Specs().cGray_400),

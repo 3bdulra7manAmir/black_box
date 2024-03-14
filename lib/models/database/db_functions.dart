@@ -19,7 +19,6 @@ Future<void> addItem(String item) async
   await isar.writeTxn(() => isar.items.put(newItem));
 }
 
-
 // R E A D
 final List<Items> currentItems = [];
 Future<void> fetchItems() async
@@ -29,7 +28,6 @@ Future<void> fetchItems() async
   currentItems.clear(); //Clear The items list
   currentItems.addAll(fetchItems); // fetch then add all of em into the list
 }
-
 
 // U P D A T E
 Future<void> updateItems(int id, String newItem) async
