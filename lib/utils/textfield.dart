@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Widget defaultTextField({
   String hintText = "",
@@ -10,13 +11,13 @@ Widget defaultTextField({
   TextInputType? inputType,
   TextEditingController? textController,
   Function(String)? onSubmitted,
+  TextInputFormatter? inputFormatters,
 
 }) =>
 
 SizedBox(
   width: containerWidth,
   //height: ,
-  
   child: TextField(
     onSubmitted: onSubmitted,
     keyboardType: inputType,

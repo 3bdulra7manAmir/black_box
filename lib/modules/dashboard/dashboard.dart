@@ -1,10 +1,12 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:black_box/const/const.dart';
 import 'package:black_box/modules/dashboard/cubit/cubit.dart';
 import 'package:black_box/modules/dashboard/cubit/states.dart';
 import 'package:black_box/utils/appbar.dart';
+import 'package:black_box/models/dashs_textfield.dart';
 import 'package:black_box/utils/drawer.dart';
 import 'package:black_box/utils/dropdownmenu.dart';
-import 'package:black_box/utils/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -106,7 +108,18 @@ TextEditingController serialNumber = TextEditingController();
                         children: [
                       const Text("S/N:"),
                       const SizedBox(width: 20,),
-                      defaultTextField(containerWidth: 200, textController: serialNumber),
+                      //defaultTextField(containerWidth: 200, textController: serialNumber),
+                      Container(
+                        width: 200,
+                        child: TextField(
+                          controller: serialNumber,
+                          inputFormatters:[
+                          SerialNumberFormatter(), // Applies the custom formatter
+                        ],
+                          keyboardType: TextInputType.text, // Allows both numbers and letters
+                          decoration: const InputDecoration(border: OutlineInputBorder(),),
+                          )
+                      ),
                       const SizedBox(width: 20,),
                       const Text("Destnation:"),
                       const SizedBox(width: 20,),
@@ -121,9 +134,15 @@ TextEditingController serialNumber = TextEditingController();
                         containerWidth: 165,
                       ),
                       const SizedBox(width: 70,),
-                      ElevatedButton.icon(onPressed: () {DashBoardCubit.get(context).add(
-                        brand: dropdownbrandValue, color: dropdowncolorValue, destnation: dropdowndestnationValue,type: dropdownitemsValue,serialNumber:serialNumber.text 
-                      );}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
+                      ElevatedButton.icon(onPressed: () {DashBoardCubit.get(context).add
+                      (
+                        brand: dropdownbrandValue,
+                        color: dropdowncolorValue,
+                        destnation: dropdowndestnationValue,
+                        type: dropdownitemsValue,
+                        serialNumber: serialNumber.text 
+                      );}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")
+                    ),
                 ]
               ),
                     ],
