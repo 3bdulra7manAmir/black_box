@@ -6,7 +6,7 @@ part 'db.g.dart';
 class Items       //Table name is the same as class name then table name is Items.
 {
 Id id = Isar.autoIncrement; //ID Column
-String? type;               //Type Column
+String? itemType;               //Type Column
 String? brand;              //Brand Column
 String? color;              //Color Column
 String? serialNumber;       //SN Column

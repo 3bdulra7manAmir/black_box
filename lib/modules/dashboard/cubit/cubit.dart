@@ -10,16 +10,16 @@ DashBoardCubit() : super(InitializeDashBoardState());
 static DashBoardCubit get(context) => BlocProvider.of(context);
 
 Future<void> add({
-  String type = '',               //Type Column  //not required cause i may but it in a null value
-  String brand = '',              //Brand Column  //not required cause i may but it in a null value
-  String color = '',              //Color Column  //not required cause i may but it in a null value
-  String serialNumber = '',       //SN Column  //not required cause i may but it in a null value
-  String destnation = '',         //Dest Column  //not required cause i may but it in a null value
+  String? type,               //Type Column  //not required cause i may but it in a null value
+  String? brand,              //Brand Column  //not required cause i may but it in a null value
+  String? color,              //Color Column  //not required cause i may but it in a null value
+  String? serialNumber,       //SN Column  //not required cause i may but it in a null value
+  String? destnation,         //Dest Column  //not required cause i may but it in a null value
 })
 async {
   //DBinit.initalizeDataBase();
   final item = Items()..
-  type = type..
+  itemType = type..
   brand = brand..
   color = color..
   serialNumber = serialNumber..

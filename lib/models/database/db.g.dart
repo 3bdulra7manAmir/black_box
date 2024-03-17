@@ -32,14 +32,14 @@ const ItemsSchema = CollectionSchema(
       name: r'destnation',
       type: IsarType.string,
     ),
-    r'serialNumber': PropertySchema(
+    r'itemType': PropertySchema(
       id: 3,
-      name: r'serialNumber',
+      name: r'itemType',
       type: IsarType.string,
     ),
-    r'type': PropertySchema(
+    r'serialNumber': PropertySchema(
       id: 4,
-      name: r'type',
+      name: r'serialNumber',
       type: IsarType.string,
     )
   },
@@ -82,13 +82,13 @@ int _itemsEstimateSize(
     }
   }
   {
-    final value = object.serialNumber;
+    final value = object.itemType;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
   }
   {
-    final value = object.type;
+    final value = object.serialNumber;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
@@ -105,8 +105,8 @@ void _itemsSerialize(
   writer.writeString(offsets[0], object.brand);
   writer.writeString(offsets[1], object.color);
   writer.writeString(offsets[2], object.destnation);
-  writer.writeString(offsets[3], object.serialNumber);
-  writer.writeString(offsets[4], object.type);
+  writer.writeString(offsets[3], object.itemType);
+  writer.writeString(offsets[4], object.serialNumber);
 }
 
 Items _itemsDeserialize(
@@ -120,8 +120,8 @@ Items _itemsDeserialize(
   object.color = reader.readStringOrNull(offsets[1]);
   object.destnation = reader.readStringOrNull(offsets[2]);
   object.id = id;
-  object.serialNumber = reader.readStringOrNull(offsets[3]);
-  object.type = reader.readStringOrNull(offsets[4]);
+  object.itemType = reader.readStringOrNull(offsets[3]);
+  object.serialNumber = reader.readStringOrNull(offsets[4]);
   return object;
 }
 
@@ -721,6 +721,152 @@ extension ItemsQueryFilter on QueryBuilder<Items, Items, QFilterCondition> {
     });
   }
 
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'itemType',
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'itemType',
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'itemType',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeGreaterThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'itemType',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeLessThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'itemType',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeBetween(
+    String? lower,
+    String? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'itemType',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'itemType',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'itemType',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'itemType',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'itemType',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'itemType',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterFilterCondition> itemTypeIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'itemType',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<Items, Items, QAfterFilterCondition> serialNumberIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
@@ -866,150 +1012,6 @@ extension ItemsQueryFilter on QueryBuilder<Items, Items, QFilterCondition> {
       ));
     });
   }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'type',
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'type',
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'type',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'type',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'type',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'type',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'type',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'type',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeContains(String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'type',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeMatches(String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'type',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'type',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterFilterCondition> typeIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'type',
-        value: '',
-      ));
-    });
-  }
 }
 
 extension ItemsQueryObject on QueryBuilder<Items, Items, QFilterCondition> {}
@@ -1053,6 +1055,18 @@ extension ItemsQuerySortBy on QueryBuilder<Items, Items, QSortBy> {
     });
   }
 
+  QueryBuilder<Items, Items, QAfterSortBy> sortByItemType() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'itemType', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterSortBy> sortByItemTypeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'itemType', Sort.desc);
+    });
+  }
+
   QueryBuilder<Items, Items, QAfterSortBy> sortBySerialNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'serialNumber', Sort.asc);
@@ -1062,18 +1076,6 @@ extension ItemsQuerySortBy on QueryBuilder<Items, Items, QSortBy> {
   QueryBuilder<Items, Items, QAfterSortBy> sortBySerialNumberDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'serialNumber', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterSortBy> sortByType() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'type', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterSortBy> sortByTypeDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'type', Sort.desc);
     });
   }
 }
@@ -1127,6 +1129,18 @@ extension ItemsQuerySortThenBy on QueryBuilder<Items, Items, QSortThenBy> {
     });
   }
 
+  QueryBuilder<Items, Items, QAfterSortBy> thenByItemType() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'itemType', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Items, Items, QAfterSortBy> thenByItemTypeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'itemType', Sort.desc);
+    });
+  }
+
   QueryBuilder<Items, Items, QAfterSortBy> thenBySerialNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'serialNumber', Sort.asc);
@@ -1136,18 +1150,6 @@ extension ItemsQuerySortThenBy on QueryBuilder<Items, Items, QSortThenBy> {
   QueryBuilder<Items, Items, QAfterSortBy> thenBySerialNumberDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'serialNumber', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterSortBy> thenByType() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'type', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Items, Items, QAfterSortBy> thenByTypeDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'type', Sort.desc);
     });
   }
 }
@@ -1174,17 +1176,17 @@ extension ItemsQueryWhereDistinct on QueryBuilder<Items, Items, QDistinct> {
     });
   }
 
+  QueryBuilder<Items, Items, QDistinct> distinctByItemType(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'itemType', caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<Items, Items, QDistinct> distinctBySerialNumber(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'serialNumber', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Items, Items, QDistinct> distinctByType(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'type', caseSensitive: caseSensitive);
     });
   }
 }
@@ -1214,15 +1216,15 @@ extension ItemsQueryProperty on QueryBuilder<Items, Items, QQueryProperty> {
     });
   }
 
-  QueryBuilder<Items, String?, QQueryOperations> serialNumberProperty() {
+  QueryBuilder<Items, String?, QQueryOperations> itemTypeProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'serialNumber');
+      return query.addPropertyName(r'itemType');
     });
   }
 
-  QueryBuilder<Items, String?, QQueryOperations> typeProperty() {
+  QueryBuilder<Items, String?, QQueryOperations> serialNumberProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'type');
+      return query.addPropertyName(r'serialNumber');
     });
   }
 }

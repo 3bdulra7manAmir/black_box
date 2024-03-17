@@ -13,7 +13,7 @@ class DBops
 Future<void> addItem(String item) async
 {
   // Create a new Item Objetc
-  final newItem = Items()..type = item;
+  final newItem = Items()..itemType = item;
 
   //Save it to the DataBase
   await isar.writeTxn(() => isar.items.put(newItem));
@@ -36,7 +36,7 @@ Future<void> updateItems(int id, String newItem) async
   final existingItems = await isar.items.get(id);
   
   if (existingItems != null){
-    existingItems.type = newItem;
+    existingItems.itemType = newItem;
     await isar.writeTxn(() => isar.items.put(existingItems));
     await fetchItems();
   }

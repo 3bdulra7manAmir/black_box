@@ -10,14 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 List<String> itemsList = <String>['Mouse', 'Keyboard', 'Power Cable', 'VGA Cable', 'HDMI Cable', 'Neon Lamb', 'CRT Screen', 'Case', 'Ethernet'];
-List<String> specsList = <String>['Black', 'White', 'Blue', 'Red'];
+List<String> colorList = <String>['Black', 'White', 'Blue', 'Red'];
 List<String> brandList = <String>['Microsoft','Hp', 'DELL', 'Fujitsu', 'XO', 'WOLF', 'Tiger', 'Icon', 'MediaTech'];
 List<String> destnationList = <String>['Library', 'Corruption Discovery'];
-
-String dropdownitemsValue = itemsList.first;
-String dropdownspecsValue = specsList.first;
-String dropdownbrandValue = brandList.first;
-String dropdowndestnationValue = destnationList.first;
 
 class AdminDashboard extends StatefulWidget
 {
@@ -31,9 +26,11 @@ class _AdminDashboardState extends State<AdminDashboard>
 {
 
 String dropdownitemsValue = itemsList.first; // Initialize dropdownValue here
-String dropdownspecsValue = specsList.first; // Initialize dropdownValue here
+String dropdowncolorValue = colorList.first; // Initialize dropdownValue here
 String dropdownbrandValue = brandList.first; // Initialize dropdownValue here
 String dropdowndestnationValue = destnationList.first; // Initialize dropdownValue here
+
+TextEditingController serialNumber = TextEditingController();
 
   @override
   Widget build(BuildContext context)
@@ -93,13 +90,13 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                           const Text("Color:"),
                           const SizedBox(width: 20,),
                           defultDropDownMenu(
-                              wordsList: specsList,
-                              dropdownValueDefultValue: dropdownspecsValue,
+                              wordsList: colorList,
+                              dropdownValueDefultValue: dropdowncolorValue,
                               dropDownMenuIcon: const Icon(Icons.arrow_downward),
                               elevationValue: 1,
                               underline: Container(height: 2,color: Colors.deepPurple,),
                               textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                              onChangedFunction: (String? value) {setState(() {dropdownspecsValue = value!;});},
+                              onChangedFunction: (String? value) {setState(() {dropdowncolorValue = value!;});},
                               containerWidth: 70
                             ),
                         ],
@@ -109,7 +106,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                         children: [
                       const Text("S/N:"),
                       const SizedBox(width: 20,),
-                      defaultTextField(containerWidth: 200,),
+                      defaultTextField(containerWidth: 200, textController: serialNumber),
                       const SizedBox(width: 20,),
                       const Text("Destnation:"),
                       const SizedBox(width: 20,),
@@ -124,7 +121,9 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
                         containerWidth: 165,
                       ),
                       const SizedBox(width: 70,),
-                      ElevatedButton.icon(onPressed: () {DashBoardCubit.get(context).add();}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
+                      ElevatedButton.icon(onPressed: () {DashBoardCubit.get(context).add(
+                        brand: dropdownbrandValue, color: dropdowncolorValue, destnation: dropdowndestnationValue,type: dropdownitemsValue,serialNumber:serialNumber.text 
+                      );}, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")),
                 ]
               ),
                     ],
