@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 Widget defaultTextField({
-  String hintText = "",
+  //String hintText = "",
   Widget? prefixIcon,
   Color? prefixIconColor,
   Widget? suffixIcon,

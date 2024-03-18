@@ -17,7 +17,6 @@ Future<void> add({
   String? destnation,         //Dest Column  //not required cause i may but it in a null value
 })
 async {
-  //DBinit.initalizeDataBase();
   final item = Items()..
   itemType = type..
   brand = brand..
@@ -25,14 +24,12 @@ async {
   serialNumber = serialNumber..
   destnation = destnation;
   DBops().addItem(item);
-  emit(AddDashBoardState());
-  //await isar.close();
-  
+  emit(AddDashBoardState());  
 }
 
-void update()
-{
-    
+Future<void> readOrFetch()
+async {
+    DBops().fetchItems();
 }
 
 void delete()
