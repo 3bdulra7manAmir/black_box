@@ -8,7 +8,6 @@ import 'package:black_box/models/dashs_textfield.dart';
 import 'package:black_box/utils/drawer.dart';
 import 'package:black_box/utils/dropdownmenu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
@@ -36,6 +35,7 @@ String dropdowndestnationValue = destnationList.first; // Initialize dropdownVal
 TextEditingController serialNumber = TextEditingController();
 TextEditingController serialNumberRemover = TextEditingController();
 TextEditingController serialNumberReader = TextEditingController();
+TextEditingController serialNumberUpdate = TextEditingController();
 TextEditingController id = TextEditingController();
 
   @override
@@ -299,7 +299,7 @@ TextEditingController id = TextEditingController();
                       Container(
                         width: 200,
                         child: TextField(
-                          controller: serialNumber,
+                          controller: serialNumberUpdate,
                           inputFormatters:[
                           SerialNumberFormatter(), // Applies the custom formatter
                         ],
@@ -330,7 +330,7 @@ TextEditingController id = TextEditingController();
                       //   type: dropdownitemsValue,
                       //   serialNumber: serialNumber.text 
                       // );
-                      serialNumber.clear(); //clears the textfield text after inserted
+                      serialNumberUpdate.clear(); //clears the textfield text after inserted
                       }, icon: const Icon(Icons.insert_chart), label: const Text("UPDATE")
                     ),
                 ]
