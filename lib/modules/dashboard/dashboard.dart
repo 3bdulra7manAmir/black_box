@@ -9,6 +9,7 @@ import 'package:black_box/utils/drawer.dart';
 import 'package:black_box/utils/dropdownmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:black_box/utils/textfield.dart';
 
 
 List<String> itemsList = <String>['Mouse', 'Keyboard', 'Power Cable', 'VGA Cable', 'HDMI Cable', 'Neon Lamb', 'CRT Screen', 'Case', 'Ethernet'];
@@ -37,6 +38,13 @@ TextEditingController serialNumberRemover = TextEditingController();
 TextEditingController serialNumberReader = TextEditingController();
 TextEditingController serialNumberUpdate = TextEditingController();
 TextEditingController id = TextEditingController();
+
+TextEditingController returnedItem = TextEditingController();
+TextEditingController returnedBrand = TextEditingController();
+TextEditingController returnedColor = TextEditingController();
+TextEditingController returnedDestnation = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context)
@@ -79,7 +87,7 @@ TextEditingController id = TextEditingController();
                               containerWidth: 110
                             ),
                           const SizedBox(width: 50,),
-              
+                              
                           const Text("Brand:"),
                           const SizedBox(width: 20,),
                           defultDropDownMenu(
@@ -93,7 +101,7 @@ TextEditingController id = TextEditingController();
                               containerWidth: 100
                             ),
                           const SizedBox(width: 50,),
-              
+                              
                           const Text("Color:"),
                           const SizedBox(width: 20,),
                           defultDropDownMenu(
@@ -151,18 +159,18 @@ TextEditingController id = TextEditingController();
                       }, icon: const Icon(Icons.insert_chart), label: const Text("INSERT")
                     ),
                 ]
-              ),
-              //ADD
-              const SizedBox(height: 15,),
-              Container( //SEPERATOR
+                              ),
+                              //ADD
+                              const SizedBox(height: 15,),
+                              Container( //SEPERATOR
                 width: double.infinity,
                 height: 1,
                 child: const ColoredBox(color: Colors.black),
-              ),
-              //DELETE
-              const SizedBox(height: 60,),
-              //DELETE
-              Row(
+                              ),
+                              //DELETE
+                              const SizedBox(height: 60,),
+                              //DELETE
+                              Row(
                 children: [
                       const Text("S/N:"),
                       const SizedBox(width: 20,),
@@ -193,7 +201,7 @@ TextEditingController id = TextEditingController();
                     ),
                   //DELETE
                   //UPDATE
-
+                              
                   //Still Will BE CHANGED TO TEXTFIELDS INSTEAD OF DROP DOWN MENUS
                   const SizedBox(height: 60,),
                   Container( //SEPERATOR
@@ -217,7 +225,7 @@ TextEditingController id = TextEditingController();
                           keyboardType: TextInputType.text, // Allows both numbers and letters
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
-                            label: Text("read item via sn")
+                            label: Text("rd item via sn")
                             ),
                           )
                       ),
@@ -237,46 +245,31 @@ TextEditingController id = TextEditingController();
                       Row(
                         children: [
                           const Text("Item:"),
-                          const SizedBox(width: 20,),
-                          defultDropDownMenu(
-                              wordsList: itemsList,
-                              dropdownValueDefultValue: dropdownitemsValue,
-                              dropDownMenuIcon: const Icon(Icons.arrow_downward),
-                              elevationValue: 1,
-                              underline: Container(height: 2,color: Colors.deepPurple,),
-                              textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                              onChangedFunction: (String? value) {setState(() {dropdownitemsValue = value!;});},
-                              containerWidth: 110
-                            ),
-                          const SizedBox(width: 50,),
-              
+                          const SizedBox(width: 10,),
+                          defaultTextField(
+                            containerWidth: 155,
+                            suffixIcon: const Icon(Icons.emoji_objects),
+                            textController: returnedItem,
+                          ),
+                          const SizedBox(width: 30,),
+                                
                           const Text("Brand:"),
-                          const SizedBox(width: 20,),
-                          defultDropDownMenu(
-                              wordsList: brandList,
-                              dropdownValueDefultValue: dropdownbrandValue,
-                              dropDownMenuIcon: const Icon(Icons.arrow_downward),
-                              elevationValue: 1,
-                              underline: Container(height: 2,color: Colors.deepPurple,),
-                              textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                              onChangedFunction: (String? value) {setState(() {dropdownbrandValue = value!;});},
-                              containerWidth: 100
-                            ),
-                          const SizedBox(width: 50,),
-              
+                          const SizedBox(width: 10,),
+                          defaultTextField(
+                            containerWidth: 140,
+                            suffixIcon: const Icon(Icons.backup_table_rounded),
+                            textController: returnedBrand,
+                          ),
+                          const SizedBox(width: 30,),
+                                
                           const Text("Color:"),
-                          const SizedBox(width: 20,),
-                          defultDropDownMenu(
-                              wordsList: colorList,
-                              dropdownValueDefultValue: dropdowncolorValue,
-                              dropDownMenuIcon: const Icon(Icons.arrow_downward),
-                              elevationValue: 1,
-                              underline: Container(height: 2,color: Colors.deepPurple,),
-                              textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                              onChangedFunction: (String? value) {setState(() {dropdowncolorValue = value!;});},
-                              containerWidth: 70
-                            ),
-                            const SizedBox(width: 55,),
+                          const SizedBox(width: 10,),
+                          defaultTextField(
+                            containerWidth: 105,
+                            suffixIcon: const Icon(Icons.color_lens),
+                            textController: returnedColor,
+                          ),
+                            const SizedBox(width: 40,),
                             Container(
                               width: 100,
                               height: 60,
@@ -310,16 +303,11 @@ TextEditingController id = TextEditingController();
                       const SizedBox(width: 20,),
                       const Text("Destnation:"),
                       const SizedBox(width: 20,),
-                      defultDropDownMenu(
-                        dropdownValueDefultValue: dropdowndestnationValue,
-                        dropDownMenuIcon: const Icon(Icons.arrow_downward),
-                        onChangedFunction: (String? value) {setState(() {dropdowndestnationValue = value!;});},
-                        elevationValue: 1,
-                        wordsList: destnationList,
-                        underline: Container(height: 2,color: Colors.deepPurple,),
-                        textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                        containerWidth: 165,
-                      ),
+                      defaultTextField(
+                            containerWidth: 200,
+                            suffixIcon: const Icon(Icons.emoji_objects),
+                            textController: returnedDestnation,
+                          ),
                       const SizedBox(width: 70,),
                       ElevatedButton.icon(onPressed: () {
                         //DashBoardCubit.get(context).add
@@ -334,7 +322,7 @@ TextEditingController id = TextEditingController();
                       }, icon: const Icon(Icons.insert_chart), label: const Text("UPDATE")
                     ),
                 ]
-              ),
+                              ),
                   ],
                 ),
                 ]),

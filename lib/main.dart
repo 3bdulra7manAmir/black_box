@@ -21,7 +21,6 @@ void main() async {
   // setting min and max with the same size to prevent resizing
   //await DesktopWindow.setMinWindowSize(const Size(640,480));
   //await DesktopWindow.setMaxWindowSize(const Size(640,480));
-  
   Bloc.observer = const SimpleBlocObserver();
   blocMain();
 

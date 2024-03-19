@@ -32,8 +32,16 @@ async {
     DBops().fetchItems();
 }
 
-void delete()
+void update()
 {
     
 }
+
+Future<void> delete({int? id}) async
+{
+  
+  DBops().deleteItem(id!);
+  emit(AddDashBoardState());  
+}
+
 }
