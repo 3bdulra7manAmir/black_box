@@ -1,6 +1,7 @@
 import 'package:black_box/const/bloc/bloc_observer.dart';
 import 'package:black_box/models/database/db_init.dart';
 import 'package:black_box/modules/dashboard/dashboard.dart';
+import 'package:black_box/modules/home/home.dart';
 import 'package:black_box/modules/library/lib.dart';
 import 'package:bloc/bloc.dart';
 import 'package:window_manager/window_manager.dart';
@@ -36,7 +37,7 @@ class MainApp extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return  const MaterialApp(
-      home: AdminDashboard(),
+      home: Home(),
       //color: Colors.red,
       debugShowCheckedModeBanner: false,
     );

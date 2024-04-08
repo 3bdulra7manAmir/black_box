@@ -11,7 +11,7 @@ import 'package:black_box/utils/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-String username = "MAJ. Shadow";
+String title = "Welcome";
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
               context,
             ),
             appBar:
-                defaultAppBar(appBarTitle: "Hi,... \t\t\t$username", elevation: 3),
+                defaultAppBar(appBarTitle: title, elevation: 3),
             body: Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
@@ -47,11 +47,15 @@ class _HomeState extends State<Home> {
                       child: Column(children: [
                         Padding(
                           padding: const EdgeInsets.only(top: 75),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(25),
-                              child: Image.asset("assets/images/lib4.png")),
+                          child: Container(
+                            width: 400,
+                            height: 350,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25),
+                                child: Image.asset("assets/images/lib4.png")),
+                          ),
                         ),
-                        const SizedBox(height: 15),
+                        //const SizedBox(height: 15),
                         defaultButton(
                             btnText: "GET IN!",
                             btnFunction: () {Navigator.push(context,MaterialPageRoute(builder: (context) => const Library()),);},
@@ -59,11 +63,11 @@ class _HomeState extends State<Home> {
                       ]),
                     ),
                   ),
-                  Container(
-                    color: Colors.black,
-                    height: double.infinity,
-                    width: 20,
-                  ),
+                  // Container(
+                  //   color: Colors.black,
+                  //   height: double.infinity,
+                  //   width: 20,
+                  // ),
                   Expanded(
                     //flex: 1,
                     child: Container(
@@ -72,11 +76,15 @@ class _HomeState extends State<Home> {
                       child: Column(children: [
                         Padding(
                           padding: const EdgeInsets.only(top: 75),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(25),
-                              child: Image.asset("assets/images/corru_discov1.png")),
+                          child: Container(
+                            width: 400,
+                            height: 350,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25),
+                                child: Image.asset("assets/images/corru_discov1.png")),
+                          ),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 3),
                         defaultButton(
                             btnText: "HUP IN!",
                             btnFunction: () {Navigator.push(context,MaterialPageRoute(builder: (context) => const CorruptionDiscovery()),);},
