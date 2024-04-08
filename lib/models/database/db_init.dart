@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_print, unused_import
+
+import 'package:black_box/const/const.dart';
 import 'package:black_box/models/database/db.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,4 +18,8 @@ static Future<void> initalizeDataBase() async {
   isar = await Isar.open([ItemsSchema], directory: dir.path);
   }
 
+// void linkPrinter() {
+//  if (inspectorUrl != null) {
+//     print('\n\t Inspector URL: $inspectorUrl \t\n');
+//  }
 }

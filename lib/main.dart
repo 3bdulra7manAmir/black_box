@@ -1,6 +1,7 @@
 import 'package:black_box/const/bloc/bloc_observer.dart';
 import 'package:black_box/models/database/db_init.dart';
 import 'package:black_box/modules/dashboard/dashboard.dart';
+import 'package:black_box/modules/library/lib.dart';
 import 'package:bloc/bloc.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ void main() async {
   // initialize isar Items DataBase
   WidgetsFlutterBinding.ensureInitialized();
   await DBinit.initalizeDataBase();
+  
 
   //Onces Again for the Screen Size Adjuster.
   WidgetsFlutterBinding.ensureInitialized();

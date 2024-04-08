@@ -1,14 +1,18 @@
+import 'package:black_box/models/database/db_init.dart';
 import 'package:isar/isar.dart';
 import 'package:black_box/models/database/db.dart';
 
 
 //Isar Database Object Creation - so we could use an instance of the DataBase.
 //And it is Global not in a Spesific class so we don't need to create it in every class.
-late Isar isar; 
 
+//late Isar isar; 
+final isar = DBinit.isar;
 
 class DBops
 {
+Isar isar = DBinit.isar;
+
 // C R E A T - I N S E R T - A D D...
 Future<void> addItem(String item) async
 {
@@ -21,12 +25,13 @@ Future<void> addItem(String item) async
 
 // R E A D
 final List<Items> currentItems = [];
-Future<void> fetchItems() async
+Future<List<Items>>? fetchItems() async
 {
   // fetch All items
   List<Items> fetchItems = await isar.items.where().findAll(); //returns all of em
   currentItems.clear(); //Clear The items list
   currentItems.addAll(fetchItems); // fetch then add all of em into the list
+  return currentItems;
 }
 
 // U P D A T E
