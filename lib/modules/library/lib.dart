@@ -20,11 +20,10 @@ class Library extends StatelessWidget {
         listener: (context, state){},
         builder: (context, state){
         return SafeArea(
-          child: Scaffold(
-            appBar: defaultAppBar(backwordArrow: IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back)),
-            appBarTitle: "Library", elevation: 3),
-            
-            body: FutureBuilder<List<Items>>(
+              child: Scaffold(
+                appBar: defaultAppBar(appBarTitle: "Library", elevation: 3),
+
+                body: FutureBuilder<List<Items>>(
                   future: isar.items.where().filter().destnationEqualTo("Library",).findAll(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -32,25 +31,28 @@ class Library extends StatelessWidget {
                     } else if (snapshot.hasError) {
                       return Text('Error: ${snapshot.error}');
                     } else {
-                      return DataTable(
-                        columns: const <DataColumn>[
-                          DataColumn(label: Text('item')),
-                          DataColumn(label: Text('brand')),
-                          DataColumn(label: Text('color')),
-                          DataColumn(label: Text('serial number')),
-                          DataColumn(label: Text('destnation')),
-                        ],
-                        rows: snapshot.data!
-                            .map((Items item) => DataRow(
-                                  cells: <DataCell>[
-                                    DataCell(Text(item.itemType ?? '')),
-                                    DataCell(Text(item.brand ?? '')),
-                                    DataCell(Text(item.color ?? '')),
-                                    DataCell(Text(item.serialNumber ?? '')),
-                                    DataCell(Text(item.destnation ?? '')),
-                                  ],
-                                ))
-                            .toList(),
+                      return Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: DataTable(
+                          columns: const <DataColumn>[
+                            DataColumn(label: Text('item')),
+                            DataColumn(label: Text('brand')),
+                            DataColumn(label: Text('color')),
+                            DataColumn(label: Text('serial number')),
+                            DataColumn(label: Text('destnation')),
+                          ],
+                          rows: snapshot.data!
+                              .map((Items item) => DataRow(
+                                    cells: <DataCell>[
+                                      DataCell(Text(item.itemType ?? '')),
+                                      DataCell(Text(item.brand ?? '')),
+                                      DataCell(Text(item.color ?? '')),
+                                      DataCell(Text(item.serialNumber ?? '')),
+                                      DataCell(Text(item.destnation ?? '')),
+                                    ],
+                                  ))
+                              .toList(),
+                        ),
                       );
                     }
                   },

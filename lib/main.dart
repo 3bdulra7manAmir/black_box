@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:black_box/const/bloc/bloc_observer.dart';
 import 'package:black_box/models/database/db_init.dart';
 import 'package:black_box/modules/dashboard/dashboard.dart';

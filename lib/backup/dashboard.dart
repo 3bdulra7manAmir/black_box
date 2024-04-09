@@ -249,13 +249,26 @@ String? serialNumberText;
                         children: [
                           const Text("Item:"),
                           const SizedBox(width: 10,),
-                          defaultTextField(
-                            containerWidth: 155,
-                            suffixIcon: const Icon(Icons.emoji_objects),
-                            //textController: returnedItem., //here
-                          ),
+
+                          FutureBuilder<String>(
+                            future: DashBoardCubit.get(context).printItemDetails(), // Assuming serialNumberText is available
+                            builder: (BuildContext context, AsyncSnapshot<String> snapshot)
+                            {
+                            if (snapshot.connectionState == ConnectionState.waiting) {
+                              return const CircularProgressIndicator(); // Show loading indicator while waiting
+                              } else if (snapshot.hasError) {
+                                return Text('Error: ${snapshot.error}'); // Show error message if any
+                                } else {
+                            return defaultTextField(
+                                  containerWidth: 155,
+                                  suffixIcon: const Icon(Icons.emoji_objects),
+                                  textController: TextEditingController(text: snapshot.data ?? ''), //here
+                                );
+                              }
+                            }),
+                      
                           const SizedBox(width: 30,),
-                                
+
                           const Text("Brand:"),
                           const SizedBox(width: 10,),
                           defaultTextField(
