@@ -15,7 +15,7 @@ static Future<void> initalizeDataBase() async {
   // GET THE PATH DIR FOR WHERE ALL OF THIS IS GONNA BE SAVED!.
   final dir = await getApplicationDocumentsDirectory();
   //Table Name or Schema...     //Current PATH...
-  isar = await Isar.open([ItemsSchema], directory: dir.path);
+  isar = await Isar.open([StorageSchema, ControlSchema, WatcherSchema], directory: dir.path);
   }
 
 // void linkPrinter() {

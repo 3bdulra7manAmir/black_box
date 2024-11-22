@@ -3,9 +3,13 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  charset_converter
   desktop_context_menu_windows
+  flutter_localization
   isar_flutter_libs
+  printing
   screen_retriever
+  url_launcher_windows
   window_manager
 )
 

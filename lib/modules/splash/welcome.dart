@@ -1,6 +1,9 @@
+// ignore_for_file: unused_import
+
 import 'package:black_box/modules/login/login.dart';
 import 'package:tbib_splash_screen/splash_screen_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -26,7 +29,8 @@ class Welcome extends StatelessWidget {
       navigateRoute: const LoginScreen(),
       duration: const Duration(seconds: 2),
       //speed: const Duration(milliseconds: 100),
-      imageSrc: "assets/images/vault.png",
+      //imageSrc: "assets/images/vault.png",
+      imageSrc: "assets/images/tmc.png",
       logoSize: 450,
 
       text: WavyAnimatedText(".............",

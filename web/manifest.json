@@ -1,6 +1,6 @@
 {
-    "name": "black_box",
-    "short_name": "black_box",
+    "name": "blackbox",
+    "short_name": "blackbox",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

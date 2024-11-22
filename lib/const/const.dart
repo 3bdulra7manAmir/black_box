@@ -1,15 +1,20 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 
 // Utilites Class
-class Specs {
-
+class Specs
+{
   Color cBlue_200 = (Colors.blue[200])!;
   Color cBlue_300 = (Colors.blue[300])!;
   Color cBlue_400 = (Colors.blue[400])!;
+
+  Color cRed_200 = (Colors.red[200])!;
+  Color cRed_300 = (Colors.red[300])!;
+  Color cRed_400 = (Colors.red[400])!;
+  Color cRed_500 = (Colors.red[500])!;
+  Color cRed = (Colors.red);
 
   Color cYellow_200 = (Colors.yellow[200])!;
   Color cYellow_300 = (Colors.yellow[300])!;
@@ -51,31 +56,72 @@ class Specs {
 }
 
 
-class HexColor extends Color {
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll("#", "");
-    if (hexColor.length == 6) {
-      hexColor = "FF$hexColor";
+class SerialNumberFormatter extends TextInputFormatter
+{
+ @override
+ TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.selection.baseOffset == 0) {
+      return newValue;
     }
-    return int.parse(hexColor, radix: 16);
-  }
+    String enteredData = newValue.text;
+    StringBuffer buffer = StringBuffer();
+    int hyphenCount = 0;
+    for (int i = 0; i < enteredData.length; i++) {
+      if (enteredData[i] == '-') {
+        hyphenCount++;
+      } else {
+        buffer.write(enteredData[i]);
+        if ((buffer.length - hyphenCount) % 4 == 0 && enteredData.length != i + 1) {
+          buffer.write('-');
+        }
+      }
+    }
 
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+    return TextEditingValue
+    (
+      text: buffer.toString(),
+      selection: TextSelection.collapsed(offset: buffer.toString().length),
+    );
+ }
 }
 
 
-dynamic toArNumber(dynamic enNumber) {
-  if (enNumber.toString().isNotEmpty) {
-    NumberFormat formatter = NumberFormat('#.##', 'ar_EG');
-    dynamic arNumber = formatter.format(enNumber);
-    return arNumber.toString();
-  }
-  else{
-    NumberFormat formatter = NumberFormat('#.##', 'ar_EG');
-    dynamic arNumber = formatter.format(enNumber);
-    return arNumber;
+class MyDateTimeClass
+{
+  late DateTime now;
+  late String formattedDate;
+
+  MyDateTimeClass()
+  {
+    now = DateTime.now();
+    formattedDate = DateFormat('yyyy-MM-dd – HH-mm-ss').format(now);
+    //print(formattedDate);
+
+    // String dateString = formattedDate;
+    // DateFormat('yyyy-MM-dd HH-mm-ss').parse(dateString);
+    // print(dateString);
+
   }
 }
 
 
-//String? inspectorUrl;
+String toArabicNumber(int number)
+{
+  const arabicDigits = '٠١٢٣٤٥٦٧٨٩';
+  return number.toString().split('').map((digit)
+  {
+    return arabicDigits[int.parse(digit)];
+  }).join('');
+}
+
+
+dynamic toEnglishNumber(int number)
+{
+  const EnglishDigits = '0123456789';
+  return number.toString().split('').map((digit)
+  {
+    print(number);
+    return EnglishDigits[int.parse(digit)];
+  }).join('');
+
+}
